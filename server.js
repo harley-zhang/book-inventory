@@ -4,14 +4,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files (for frontend)
 app.use(express.static('public'));
 
-// Initialize database
 const db = new sqlite3.Database('./db/inventory.db', (err) => {
     if (err) {
         console.error('Error opening database', err.message);
@@ -30,11 +27,9 @@ db.run(`CREATE TABLE IF NOT EXISTS inventory (
     isbn TEXT UNIQUE NOT NULL
 );`);
 
-// Import routes
 const bookRoutes = require('./routes/books');
 app.use('/books', bookRoutes);
 
-// Start server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
