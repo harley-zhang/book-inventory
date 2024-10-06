@@ -140,3 +140,20 @@ table tr:hover {
         flex-direction: column;
     }
 }
+
+#refreshButton {
+    padding: 10px 20px;
+    margin-left: 30px;
+    margin-bottom:10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: opacity 0.3s ease;
+}
+
+#refreshButton:hover {
+    opacity: 0.9;
+}

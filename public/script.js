@@ -54,3 +54,29 @@ document.getElementById('filterForm').addEventListener('submit', (e) => {
 function exportBooks(format) {
     window.location.href = `/books/export/${format}`;
 }
+
+// Function to refresh and display all books
+function refreshBookList() {
+    fetch('/books/filter')
+        .then(response => response.json())
+        .then(data => {
+            const bookList = document.querySelector('#bookList tbody');
+            bookList.innerHTML = '';  // Clear current list
+            data.forEach(book => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${book.title}</td>
+                                 <td>${book.author}</td>
+                                 <td>${book.genre}</td>
+                                 <td>${book.publication_date}</td>
+                                 <td>${book.isbn}</td>`;
+                bookList.appendChild(row);
+            });
+        })
+        .catch(err => console.error('Error fetching books:', err));
+}
+
+// Hook up the refresh button
+document.getElementById('refreshButton').addEventListener('click', refreshBookList);
+
+// Optionally, call refreshBookList on page load to display all books initially
+window.onload = refreshBookList;
