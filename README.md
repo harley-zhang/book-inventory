@@ -1,6 +1,6 @@
-# [Book Inventory Management](https://book-inventory-xi.vercel.app/)
+# Book Inventory Management
 
-Book Inventory Management App by Harley Zhang (Second Bind challenge). **[Try out the app](https://book-inventory-xi.vercel.app/)**
+Book Inventory Management App by Harley Zhang (Second Bind challenge).
 
 - `HTML`, `CSS`, `JavaScript`, `SQLite`
 
